@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+/* App.css */
+.background {
+  background: linear-gradient(135deg, #3498db, #8e44ad);
+  height: 100vh; /* Set the background to cover the entire viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  text-align: center;
+  color: white;
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+}
