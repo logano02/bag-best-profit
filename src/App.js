@@ -60,25 +60,23 @@ function App() {
                 {line} = <strong> {percentage}</strong> %
                 {matchDate && (
                   <>
-                    {` | กำไร/วัน = ${(
-                      10000 /
-                      percentage /
-                      dayDifference
-                    ).toFixed(0)}฿/${dayDifference}วัน`}{" "}
+                    {` | กำไร/วัน = ${((100000 * percentage) / 100).toFixed(
+                      0
+                    )}฿/${dayDifference}วัน`}{" "}
                   </>
                 )}
               </span>
             ),
             value: percentage,
             line: line,
-            profit: (10000 / percentage / dayDifference).toFixed(0),
+            profit: ((100000 * percentage) / 100 / dayDifference).toFixed(2),
           };
         }
         return null;
       })
       .filter((result) => result !== null);
 
-    setResults(newResults.sort((a, b) => b.profit - a.profit));
+    setResults(newResults.sort((a, b) => b.value - a.value));
   };
 
   return (
@@ -104,7 +102,7 @@ function App() {
           </Button>
           <div>
             {results.length > 0 && <h3>Generated Results</h3>}
-            {results.length > 0 && <h4>เงินตั้งต้น คำนวน/ต่อวัน 10,000฿</h4>}
+            {results.length > 0 && <h4>ทุน 10,000฿</h4>}
             {results.map((result, index) => (
               <Box
                 mb={1}
